@@ -4,3 +4,60 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
+#root {
+    height: 100vh;
+    background-color: #434343;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    line-height: 60px;
+}
+header img {
+    height: 60px;
+    margin: 10px 20px;
+}
+.search_bar {
+    height: 40px;
+    padding: 10px 40px;
+}
+
+main ul{
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+.card {
+    position: relative;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid white;
+}
+.info_card {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.452);
+    color:white
+}
+.card:hover .info_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.info_card h2 {
+    text-transform: uppercase;
+}
+.vote .fas {
+    color: gold;
+}

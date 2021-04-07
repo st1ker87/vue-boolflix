@@ -16,26 +16,34 @@
 
 <body>
     <div id="root">
+        <header>
+            <img src="img/boolflix.png" alt="">
+            <div class="search_bar">
+                <input type="text" v-model="searchFilm" placeholder="Cerca film o serie TV" @keyUp.enter="getFilms" />
+                <button @click="getFilms">Search</button>
+            </div>
+        </header>
 
-        <label for="search">Search</label>
-        <input type="text" v-model="searchFilm" placeholder="Inserisci il film da cercare" @keyUp.enter="getFilms"/>
-        <button @click="getFilms">Search</button>
-        
+       
+
+        <main>
             <ul>
-                <li v-for="(film, index) in films">
-                    <div>{{film.title}}</div>
-                    <div>{{film.original_title}}</div>
-                    <div>{{film.original_title}}</div>
-                    <div>{{film.original_language}}</div>
-                    <div><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        {{film.vote_average}}</div>
+                <li class="card" v-for="(film, index) in films">
+                    <img :src="getPoster(index)" alt=""/>
+                    <div class="info_card">
+                        <h2 class="title">{{film.title||film.name}}</h2>
+                        <h3>{{film.original_title||film.original_name}}</h3>
+                        <div class="flag"><img :src="getFlag(index)" alt=""></div>
+                        <div class="vote">{{film.vote_average/2}}
+                            <i v-for="n in 5" :class="(n <= getVote(index)) ?'fas':'far'" class="fa-star"></i>
+                        </div>
+                        <div class="overview">{{film.overview}}</div>
+                    </div>
                 </li>
             </ul>
 
+        </main>
+            
 
         
 
