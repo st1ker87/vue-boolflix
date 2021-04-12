@@ -18,9 +18,16 @@
     <div id="root">
         <header>
             <img src="img/boolflix.png" alt="">
+            
+            <ul class="nav_bar">
+                <li>Home</li>
+                <li>Film</li>
+                <li>Serie TV</li>
+            </ul>
+            
             <div class="search_bar">
-                <input type="text" v-model="searchFilm" placeholder="Cerca film o serie TV" @keyUp.enter="getFilms" />
-                <button @click="getFilms">Search</button>
+                <input type="text" v-model="searchFilm" placeholder="Cerca film o serie TV" @keyUp.enter="getFilms(searchFilm)" />
+                <button @click="getFilms(searchFilm)">Search</button>
             </div>
         </header>
 
@@ -33,11 +40,12 @@
                     <div class="info_card">
                         <h2 class="title">{{film.title||film.name}}</h2>
                         <h3>{{film.original_title||film.original_name}}</h3>
-                        <div class="flag"><img :src="getFlag(index)" alt=""></div>
+                        <div class="flag"><img :src="getFlag(index)" :alt="film.original_language"></div>
                         <div class="vote">{{film.vote_average/2}}
                             <i v-for="n in 5" :class="(n <= getVote(index)) ?'fas':'far'" class="fa-star"></i>
                         </div>
-                        <div class="overview">{{film.overview}}</div>
+                        <div class="overview"><b>Overview: </b><br/>{{film.overview}}</div>
+                        <div class="credits"><span v-for="actor in getActors(index)">{{actor.name, }}</span></div>
                     </div>
                 </li>
             </ul>

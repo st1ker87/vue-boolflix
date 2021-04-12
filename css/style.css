@@ -12,17 +12,45 @@
 
 header {
     display: flex;
+    height: 80px;
     justify-content: space-between;
     background-color: black;
-    line-height: 60px;
+    align-items: center;
 }
 header img {
     height: 60px;
-    margin: 10px 20px;
+    margin: 0 20px;
+}
+.nav_bar {
+    display: flex;
+    flex-grow: 2;
+}
+.nav_bar li{
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    margin-right: 15px;
 }
 .search_bar {
-    height: 40px;
-    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+.search_bar input {
+    height: 30px;
+    width: 300px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+.search_bar button {
+    height: 30px;
+    width: 120px;
+    color: white;
+    background-color: #EF1219;
+    border: none;
+    border-radius: 5px;
 }
 
 main ul{
@@ -30,14 +58,17 @@ main ul{
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
+    flex-basis: 300px;
     justify-content: center;
     list-style: none;
 }
 .card {
     position: relative;
-    padding: 10px;
-    margin: 20px;
-    border: 1px solid white;
+    padding: 2px;
+    border-radius: 5px;
+}
+.card img {
+    max-width: 342px;
 }
 .info_card {
     display: none;
@@ -47,17 +78,34 @@ main ul{
     left: 0;
     right: 0;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.452);
-    color:white
+    background-color: rgba(0, 0, 0, 0.664);
+    color:white;
+    overflow-y: scroll;
 }
 .card:hover .info_card {
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 .info_card h2 {
     text-transform: uppercase;
 }
+.info_card h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.info_card .flag {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+.info_card .vote {
+    margin: 10px 0;
+}
 .vote .fas {
     color: gold;
+}
+.info_card .overview {
+    height: 250px;
+    overflow-y: scroll;
 }
